@@ -3,8 +3,7 @@ var Q = require("q"),
     otp = require('otplib/lib/authenticator'),
     crypto = require('crypto'),
     multer  = require('multer'),
-    handlebars = require("handlebars"),
-    Email = require('./email.js');
+    handlebars = require("handlebars");
 
 var EXPIRE_MIN=2;
 var upload = multer({ dest: __dirname+'/uploads' });
