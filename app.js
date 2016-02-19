@@ -4,7 +4,7 @@ var express = require('express'),
 var app = express();
 app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.json());
-app.set('port', (5000));
+app.set('port', (process.env.PORT || 5000));
 
 require("./router.js")(app);
 app.listen(app.get('port'), function() {
