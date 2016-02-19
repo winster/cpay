@@ -10,6 +10,12 @@ var upload = multer({ dest: __dirname+'/uploads' });
 
 module.exports = function(app) {
     
+    app.get('/', function(req, res) {
+        var msg = "You are locked!";
+        sendResponse(res, msg);
+        return;
+    });
+
     app.post('/register', function(req, res) {
         var input = req.body;
         if(!input.email) {
