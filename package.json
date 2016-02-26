@@ -26,6 +26,7 @@
     "q"                        :"*",
     "nodemailer-smtp-transport":"*",
     "multer"                   :"*",
-    "mongodb"                  :"*"
+    "mongodb"                  :"*",
+    "xml-crypto"               :"*"
   }
 }

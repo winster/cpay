@@ -4,14 +4,16 @@ var Q = require("q"),
     crypto = require('crypto'),
     multer  = require('multer'),
     email = require("./email.js"),
-    user = require("./user.js");
+    user = require("./user.js"),
+    ncpi = require("./ncpi.js"),
+    txn = require("./txn.js");
 
 var EXPIRE_MIN=2;
 var upload = multer({ dest: __dirname+'/uploads' });
 
 module.exports = function(app) {
     
-    app.get('/', function(req, res) {
+    app.get('/*', function(req, res) {
         var msg = "You are locked!";
         sendResponse(res, msg);
         return;
@@ -29,6 +31,19 @@ module.exports = function(app) {
         .then(email.send)
         .then(function(msg){sendResponse(res, msg)})
         .catch(function(msg){sendResponse(res, msg)}); 
+    });
+
+    app.post('/pay', function(req, res) {debugger;
+        var input = req.body;
+        if(!input.payee){
+            var msg = {error:"Payee not present",errorCode:"102"};
+            sendResponse(res, msg);
+            return;
+        }
+        ncpi.pay(input)
+        .then(txn.insert)
+        .then(function(msg){sendResponse(res,msg)})
+        .catch(function(msg){sendResponse(res, msg)});
     });
 
     var sendResponse = function(res, msg){
