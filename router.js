@@ -3,7 +3,8 @@ var Q = require("q"),
     otp = require('otplib/lib/authenticator'),
     crypto = require('crypto'),
     multer  = require('multer'),
-    handlebars = require("handlebars");
+    email = require("./email.js"),
+    user = require("./user.js");
 
 var EXPIRE_MIN=2;
 var upload = multer({ dest: __dirname+'/uploads' });
@@ -23,15 +24,14 @@ module.exports = function(app) {
             sendResponse(res, msg);
             return;
         }
+        user.isNew(input.email)
+        .then(user.insert)
+        .then(email.send)
+        .then(function(msg){sendResponse(res, msg)})
+        .catch(function(msg){sendResponse(res, msg)}); 
     });
 
     var sendResponse = function(res, msg){
-        debugger;	
-        if(msg.admin){
-           var template = handlebars.compile(fs.readFileSync('public/uploadRes.html','UTF8'));
-           res.send(template(msg));
-           return;
-        }
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(msg));
     };

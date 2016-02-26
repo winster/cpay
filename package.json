@@ -26,6 +26,6 @@
     "q"                        :"*",
     "nodemailer-smtp-transport":"*",
     "multer"                   :"*",
-    "handlebars"               :"*"
+    "mongodb"                  :"*"
   }
 }
