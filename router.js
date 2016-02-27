@@ -13,10 +13,16 @@ var upload = multer({ dest: __dirname+'/uploads' });
 
 module.exports = function(app) {
     
-    app.get('/*', function(req, res) {
+    app.get('/*', function(req, res) {debugger;
         var msg = "You are locked!";
         sendResponse(res, msg);
         return;
+    });
+
+    app.post('/upi/*', function(req, res){
+        console.log(req.originalUrl);
+        console.log(req.body);
+        res.sendStatus(200);
     });
 
     app.post('/register', function(req, res) {

@@ -179,8 +179,8 @@ public class SignatureGenUtil {
 		init();
 
 		// Call to generate digital signature
-		String qualifiedPathXMLToBeSigned = "D:\\signer\\ReqPay1.xml";
-		String generatedSignedXML = "D:\\signer\\ReqPay1_signed.xml";
+		String qualifiedPathXMLToBeSigned = "./Hbt.xml";
+		String generatedSignedXML = "./Hbt_signed.xml";
 		generateXMLDigitalSignature(qualifiedPathXMLToBeSigned,
 				generatedSignedXML);
 		System.out.println("XML signature generated at "+ generatedSignedXML);
@@ -200,12 +200,12 @@ public class SignatureGenUtil {
 		try {
 
 			/* getting data for keystore */
-			File signerFile = new File("D:\\signer\\signer.p12");
+			File signerFile = new File("./certificate1.p12");
 			FileInputStream is = new FileInputStream(signerFile);
 			KeyStore keystore = KeyStore.getInstance("PKCS12");
 
 			/* Information for certificate to be generated */
-			String password = "npciupi";
+			String password = "12345";
 			String alias = "1";
 
 			/* getting the key */
@@ -215,12 +215,14 @@ public class SignatureGenUtil {
 			privateKey = key;
 
 			/* Get certificate of public key */
-			java.security.cert.Certificate cert = getCertificate("D:\\signer\\signer.crt");
+			java.security.cert.Certificate cert = getCertificate("../ssl/cpay-ssl.crt");
 
 			// System.out.println("Not
 			// after:"+((X509Certificate)cert).getNotAfter());
 
 			publicKey = cert.getPublicKey();
+                        System.out.println("private key"+privateKey);
+                        System.out.println("public key"+publicKey);      
 
 		} catch (Exception e) {
 			e.printStackTrace();

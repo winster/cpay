@@ -1,0 +1,5 @@
+<ns2:ReqHbt xmlns:ns2="http://npci.org/upi/schema/">
+    <Head msgId="HENSVVR4QOS7X1UGPY7JGUV444PLWINSTER" orgId="700015" ts="2016-02-27T03:05:58+05:30" ver="1.0"/>
+    <Txn id="808080787878" note="Heartbeat" ts="2016-02-27T03:05:58+05:30" type="Hbt"/>
+    <HbtMsg type="ALIVE" value="NA"/>
+</ns2:ReqHbt>
