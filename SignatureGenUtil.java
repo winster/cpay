@@ -178,9 +178,11 @@ public class SignatureGenUtil {
 			throws NoSuchAlgorithmException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		init();
 
+                System.out.println("java - after init: "+args[0]);
+
 		// Call to generate digital signature
-		String qualifiedPathXMLToBeSigned = "./Hbt.xml";
-		String generatedSignedXML = "./Hbt_signed.xml";
+		String qualifiedPathXMLToBeSigned = "xml/"+args[0]+".xml";
+		String generatedSignedXML = "xml/"+args[0]+"_signed.xml";
 		generateXMLDigitalSignature(qualifiedPathXMLToBeSigned,
 				generatedSignedXML);
 		System.out.println("XML signature generated at "+ generatedSignedXML);
@@ -200,7 +202,7 @@ public class SignatureGenUtil {
 		try {
 
 			/* getting data for keystore */
-			File signerFile = new File("./certificate1.p12");
+			File signerFile = new File("xml/certificate1.p12");
 			FileInputStream is = new FileInputStream(signerFile);
 			KeyStore keystore = KeyStore.getInstance("PKCS12");
 
@@ -215,7 +217,7 @@ public class SignatureGenUtil {
 			privateKey = key;
 
 			/* Get certificate of public key */
-			java.security.cert.Certificate cert = getCertificate("../ssl/cpay-ssl.crt");
+			java.security.cert.Certificate cert = getCertificate("ssl/cpay-ssl.crt");
 
 			// System.out.println("Not
 			// after:"+((X509Certificate)cert).getNotAfter());

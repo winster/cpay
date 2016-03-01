@@ -1,11 +1,11 @@
 <upi:ReqPay xmlns:upi="http://npci.org/upi/schema/">
-    <Head ver="1.0" ts="2015-02-16T22:02:35+05:30" msgId="bSCazOcaNJnSxTyR7f9wkt80jQQN8aGz3o0" orgId="700015"/>
+    <Head ver="1.0" ts="2015-02-16T22:02:35+05:30" msgId="EdAurmyvB16k6pc3w0waT92Ukt1IruJuxfn" orgId="700015"/>
 <Meta>
 <Tag name="PAYREQSTART" value="2015-02-16T22:02:00+05:30"/>
 <Tag name="PAYREQEND" value="2015-02-16T22:02:35+05:30"/>
 </Meta>
-<Txn id="05371992326486356187277044530850295" note="Restaurant Bill "
-refId="2834473122334" refUrl="http://www.npci.org.in/" custRef="987656432321"
+<Txn id="66205491658192749306572786848676333" note="Restaurant Bill "
+refId="2834473939393" refUrl="http://www.npci.org.in/" custRef="987656432321"
 ts="2015-02-16T22:02:35+05:30" type="PAY" orgTxnId="">
 <RiskScores>
 <Score provider="psp1" type="TXNRISK" value="00030"/>
@@ -32,7 +32,7 @@ id="7389923983430"/>
 </Device>
 <Ac addrType="ACCOUNT">
 <Detail name="ACTYPE" value="SAVINGS"/>
-<Detail name="IFSC" value="AABQ0288100"/>
+<Detail name="IFSC" value="AAB0288100Q"/>
 <Detail name="ACNUM" value="2678892001828"/>
 </Ac>
 <Creds>

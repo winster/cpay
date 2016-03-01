@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><upi:RespAuthDetails xmlns:upi="http://npci.org/upi/schema/">
+  <Head msgId="qW7elDWY2ctHglVxpYrZ3W57BkutRd6phd9" orgId="700015" ts="2015-02-16T22:02:45+05:30" ver="1.0"/>
+  <Resp errCode="" reqMsgId="1GRDBknXpxwkZVp7bXHn" result="SUCCESS"/>
+  <Txn custRef="987656432321" id="05371992326486356187277044530850295" note="Restaurant Bill " orgTxnId="" refId="2834473122334" refUrl="http://www.npci.org.in/" ts="2015-02-16T22:02:35+05:30" type="PAY">
+    <RiskScores>
+      <Score provider="CPay" type="TXNRISK" value="00030"/>
+      <Score provider="NPCI" type="TXNRISK" value="00030"/>
+    </RiskScores>
+  </Txn>
+  <Payer addr="Jose@cpay" code="0000" name="winster jose" seqNum="1" type="PERSON">
+    <Info>
+      <Identity id="7389923983430" type="ACCOUNT" verifiedName="Winster Jose"/>
+      <Rating verifiedAddress="TRUE"/>
+    </Info>
+    <Ac addrType="ACCOUNT">
+      <Detail name="ACTYPE" value="SAVINGS"/>
+      <Detail name="IFSC" value="AABQ0288100"/>
+      <Detail name="ACNUM" value="2678892001828"/>
+    </Ac>
+    <Amount curr="INR" value="1"/>
+  </Payer>
+  <Payees>
+    <Payee addr="venkat@cpay" code="" name="Venkataswamy" seqNum="1" type="PERSON">
+      <Info>
+        <Identity id="" type="ACCOUNT" verifiedName="Venkat"/>
+        <Rating verifiedAddress="TRUE"/>
+      </Info>
+      <Ac addrType="ACCOUNT">
+        <Detail name="IFSC" value="AABQ0288100"/>
+        <Detail name="ACTYPE" value="SAVINGS"/>
+        <Detail name="ACNUM" value="5678892001828"/>
+      </Ac>
+      <Amount curr="INR" value="1"/>
+    </Payee>
+  </Payees>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>HbpeA04IkGHpMhZRb4uWM56C1Rnj97HrlEpoY3stDSM=</DigestValue></Reference></SignedInfo><SignatureValue>l354ovucxclB+3Z7jxspUXFv9dVUHnCrvHDn6JlcnhL+N9LvKIagFCyuz2nR5KYMBjmgv9xWBwOd
+4q5J1BHy/3sHRhY0Dyb1geTs+p601hTxSNkCvha6N9/hD9CpiStVwjD2P1M5KkL98MsDXo/ljs0L
+63qsBz1DasBvSWlD4x3ABRsnaIMykyAEyjLuffc5he8C88tQ3XeVENQ56y9BDkkE/41JT2p7adx6
+eJQXQ6nFwd66xj7r9jUCTGFdZLN37qt7W2JO8JmZp0/Xa64Xrh6mAQsbYIfzd3WK/gfP2PLD6XQV
+t9o1OHq1CSpw4QmlVSss6yeVRT5bwLGzbocdPQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>8Uiva1eNeHPmqYaLEPT7MFInvt7GYgc1QM6AgFHy3cTaHwDntrJpAZ2/7wDxuHZzle5nWwHdr6Ad
+PmJQWt3+DXoxdFphXL3ydoBgLyuPnSJSHwB/kZoDab2EPGcqyCmxLoON2WaWy1A7ONoxqlOj6ztI
+6DNLyhqq3PpiK+6AkwqdYPw9loyCDfzvcZouxsJ9RgOkfKuVqsMgVRRaxXBG7xBY+f529jqSDT7Y
+W+6+AKreDWFD9hDUu8Yx0KlehwmjChz7pkOt5IUXm+B1MfHzYItMKnwx9MNL0bF/p1IGxNwGERpb
+d+IlKt3cduI/7021fPPgkdxoj2uVoAAN4O/OpQ==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue></KeyInfo></Signature></upi:RespAuthDetails>

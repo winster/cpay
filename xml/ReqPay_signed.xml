@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><upi:ReqPay xmlns:upi="http://npci.org/upi/schema/">
-    <Head msgId="HENSVVR4QOS7X1UGPY7JGUV444PL9T2C3QM" orgId="700015" ts="2015-02-16T22:02:35+05:30" ver="1.0"/>
+    <Head msgId="bSCazOcaNJnSxTyR7f9wkt80jQQN8aGz3o0" orgId="700015" ts="2015-02-16T22:02:35+05:30" ver="1.0"/>
 <Meta>
 <Tag name="PAYREQSTART" value="2015-02-16T22:02:00+05:30"/>
 <Tag name="PAYREQEND" value="2015-02-16T22:02:35+05:30"/>
 </Meta>
-<Txn custRef="987656432321" id="8ENSVVR4QOS7X1UGPY7JGUV444PL9T2C3QM" note="Restaurant Bill " orgTxnId="" refId="2834473939393" refUrl="http://www.npci.org.in/" ts="2015-02-16T22:02:35+05:30" type="PAY">
+<Txn custRef="987656432321" id="05371992326486356187277044530850295" note="Restaurant Bill " orgTxnId="" refId="2834473122334" refUrl="http://www.npci.org.in/" ts="2015-02-16T22:02:35+05:30" type="PAY">
 <RiskScores>
 <Score provider="psp1" type="TXNRISK" value="00030"/>
 </RiskScores>
 </Txn>
-<Payer addr="zeeshan.khan@cpay" code="4814" name="Zeeshan Khan" seqNum="1" type="PERSON">
+<Payer addr="Jose@cpay" code="" name="winster jose" seqNum="1" type="PERSON">
 <Info>
-<Identity id="7389923983430" type="ACCOUNT" verifiedName="Zeeshan Khan"/>
+<Identity id="7389923983430" type="ACCOUNT" verifiedName="Winster Jose"/>
 <Rating verifiedAddress="TRUE"/>
 </Info>
 <Device>
@@ -28,26 +28,28 @@
 </Device>
 <Ac addrType="ACCOUNT">
 <Detail name="ACTYPE" value="SAVINGS"/>
-<Detail name="IFSC" value="HDFC0288100"/>
+<Detail name="IFSC" value="AABQ0288100"/>
 <Detail name="ACNUM" value="2678892001828"/>
 </Ac>
 <Creds>
 <Cred subType="MPIN" type="PIN">
-<Data code="" ki=""> base-64 encoded and encrypted</Data>
+<Data code="NPCI" ki=""> base-64 encoded and encrypted</Data>
 </Cred>
 </Creds>
-<Amount curr="INR" value="4000">
+<Amount curr="INR" value="1">
 </Amount>
 </Payer>
 <Payees>
-<Payee addr="rohit.patekar@cpay" code="" name="" seqNum="1" type="">
+<Payee addr="venkat@cpay" code="" name="" seqNum="1" type="">
+  <Amount curr="INR" value="1">
+  </Amount>
 </Payee>
 </Payees>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>zfDkdLj2KhF6+VOxcBePrSCkptrdHelD00lXnHLcvPI=</DigestValue></Reference></SignedInfo><SignatureValue>QHU6yE/BUZ1sOZflEDYlzMBqEaWijWudYCuosTyUduMHWz+juOjzfkXWpDrzFjvtFHkhLbIiFstm
-9TJQicAMH9zZ1dqapYBCc1THfiggm12BZfF2tQ5hyMkLHRBGD0ekGRK1cnlEggg6LvFwxLLJ4Lxr
-bKS9HxJ1aVtGCu7Js3jYij3UpDjgL8+i/bjHRW8YS2CZB0aNIgqCswUvdykIBL/Etz+Yb4DRgjZK
-Rd836EiIU+kM1HA7URyBuXU2Z47iIcPtyLFTqBHgsY2w7TKTp+p9KgN52zVVxMtqUTbxrYuw9/Hy
-QUwSCu/2puEE7iDD44GIpknByghhEZNT/SzjTQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>8Uiva1eNeHPmqYaLEPT7MFInvt7GYgc1QM6AgFHy3cTaHwDntrJpAZ2/7wDxuHZzle5nWwHdr6Ad
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>YxBEzLH6wxGFiooVpSPDb4rLbc/glSLHQfv4rD6cz8Y=</DigestValue></Reference></SignedInfo><SignatureValue>scQ8GyIgaaoAgJfdwQaUI+VnScRX5zwGM8xRF9s50VfUf83O2yhVRPrwAzh9keaio8HOeoSqCCBp
+glhb1Pf7lwYwPY9AmCXNzrh7/LtmWcwubo9MYDSc7HQZREJLePeIIJQri6spS4cHN7yXBedE/nI7
+w1Qb8HlGEnf3SrXIR4TfSIEZ9gHyRQz03VPllyqQCR2bxuID/PsZzLDpTdyHCTVcyzJZjhiQChPB
+7ifZ1sFnYqe3Bsl7zHIBX5WYkZwj+yqmTSrSNTVPViqFoOFKbpVgUDd1R4IznR6eevYBPF0ZqxWG
+Epb5y0bYhIY3Yvd+x3J5fF0THLg0Ge4kr9Zyzg==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>8Uiva1eNeHPmqYaLEPT7MFInvt7GYgc1QM6AgFHy3cTaHwDntrJpAZ2/7wDxuHZzle5nWwHdr6Ad
 PmJQWt3+DXoxdFphXL3ydoBgLyuPnSJSHwB/kZoDab2EPGcqyCmxLoON2WaWy1A7ONoxqlOj6ztI
 6DNLyhqq3PpiK+6AkwqdYPw9loyCDfzvcZouxsJ9RgOkfKuVqsMgVRRaxXBG7xBY+f529jqSDT7Y
 W+6+AKreDWFD9hDUu8Yx0KlehwmjChz7pkOt5IUXm+B1MfHzYItMKnwx9MNL0bF/p1IGxNwGERpb

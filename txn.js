@@ -3,7 +3,7 @@ var Q = require("q"),
 
 var Txn = function(){};
 
-Txn.prototype.insert = function(input){debugger;
+Txn.prototype.insert = function(input){
     var d = Q.defer();
     d.reject({error:"User already exists", errorCode:"121"});
     return d.promise;

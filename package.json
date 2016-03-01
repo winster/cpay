@@ -27,6 +27,11 @@
     "nodemailer-smtp-transport":"*",
     "multer"                   :"*",
     "mongodb"                  :"*",
-    "xml-crypto"               :"*"
+    "xml-crypto"               :"*",
+    "xml2js"                   :"*",
+    "express-xml-bodyparser"   :"*",
+    "url"                      :"*",
+    "ws"                       :"*",
+    "pretty-data"              :"*"
   }
 }
