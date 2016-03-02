@@ -1,5 +1,5 @@
 <ns2:ReqHbt xmlns:ns2="http://npci.org/upi/schema/">
-    <Head msgId="OLasb9wH6ILhC8WYr5UbrNSl1A6O4MguEep" orgId="700015" ts="2016-02-27T03:05:58+05:30" ver="1.0"/>
-    <Txn id="53571095584652835352600655548054627" note="Heartbeat" ts="2016-02-27T03:05:58+05:30" type="Hbt"/>
+    <Head msgId="2q88Nu58sgwaexYJzKrDnGn9JwHvYpePP2h" orgId="700015" ts="2016-02-27T03:05:58+05:30" ver="1.0"/>
+    <Txn id="83040996886954426848139439123647159" note="Heartbeat" ts="2016-02-27T03:05:58+05:30" type="Hbt"/>
     <HbtMsg type="ALIVE" value="NA"/>
 </ns2:ReqHbt>

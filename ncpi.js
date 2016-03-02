@@ -109,7 +109,7 @@ NCPI.prototype.pay = function(input){
 NCPI.prototype.respAuth = function(reqUpi){
     var d=Q.defer();
     var xmlReq = fs.readFileSync("./xml/RespAuthDetails.xml", "utf8");
-    parseString(xmlReq, function(err, result) {debugger;
+    parseString(xmlReq, function(err, result) {
         oldMsgId = result['upi:RespAuthDetails']['Head'][0]['$']['msgId'];
         newMsgId = randomString(35, 'aA#');
         oldTxnId = reqUpi['ns2:ReqAuthDetails']['Txn'][0]['$']['id'];

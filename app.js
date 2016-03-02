@@ -7,12 +7,12 @@ var express = require('express'),
     xmlparser = require('express-xml-bodyparser'),
     WebSocketServer = require("ws").Server,
     url = require('url'),
-    app = express();
+    app = express(),
+    global = require('./global.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.text({type:'application/xml'}));
-
-require("./router.js")(app);
+var router = require("./router.js")(app);
 
 var secureServer = https.createServer({
     key: fs.readFileSync('./ssl/cpay-ssl.key'),
@@ -28,10 +28,9 @@ var wss = new WebSocketServer({server: server})
 server.on('request', app);
 server.listen(80);
 
-var clients={};
 wss.on("connection", function(ws) {
   var userKey = getParameterByName('user',ws.upgradeReq.url);
-  clients[userKey] = ws;
+  global.clients[userKey] = ws;
   var result = {'status':'connected'}
   ws.send(JSON.stringify(result), function() {  })
   console.log("websocket connection open");
@@ -41,11 +40,16 @@ wss.on("connection", function(ws) {
       message = JSON.parse(message);
     }catch(e){
       message={"text":"send message in json format"};
-    }   debugger;
-    if(message.to && clients[message.to])
-      clients[message.to].send(JSON.stringify(message), function(error){
-          console.log('error while sending to webscoket client::'+error);
-      });        
+    }
+    if(message.to && global.clients[message.to]){
+      if(message.text==='PAY')
+          router.pay(message);
+      else
+          global.clients[message.to].send(JSON.stringify(message), function(err){
+              if(err)
+              console.log('error while sending to webscoket client::'+err);
+          });        
+    }
   });
   ws.on("close", function() {
     console.log("websocket connection close");    

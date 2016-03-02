@@ -8,7 +8,8 @@ var Q = require("q"),
     ncpi = require("./ncpi.js"),
     txn = require("./txn.js"),
     pd = require('pretty-data').pd,
-    parseString = require('xml2js').parseString;
+    parseString = require('xml2js').parseString,
+    global = require('./global.js');
 
 var ackMsg = '<upi:Ack xmlns:upi="" api="" reqMsgId="" err="" ts=""/>';
 var EXPIRE_MIN=2;
@@ -29,12 +30,14 @@ module.exports = function(app) {
         if(req.originalUrl.indexOf('ReqAuthDetails')>0){
             console.log(pd.xml(req.body));
             parse(req.body)
-            .then(function(upiReq){debugger;
+            .then(function(upiReq){
                 var d = Q.defer();
                 var reqMsgId = upiReq['ns2:ReqAuthDetails']['Head'][0]['$']['msgId']
                 ackMsg = ackMsg.replace('reqMsgId="', 'reqMsgId="'+reqMsgId);
+                ackMsg = ackMsg.replace('api="', 'api="ReqAuthDetails');
                 console.log('acknowledge to ReqAuthDetails');
                 console.log(ackMsg);
+                res.setHeader('Content-Type', 'application/xml');
                 res.send(ackMsg);
                 d.resolve(upiReq);
                 return d.promise;
@@ -88,4 +91,31 @@ module.exports = function(app) {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(msg));
     };
+
+    var pay = function(message){
+        ncpi.pay(message)
+        .then(txn.insert)
+        .then(function(msg){sendResponse(res,msg)})
+        .catch(function(msg){sendResponse(res, msg)});
+        var statuses = [{"from":"initiated","to":"initiated"}, {"from":"authorized","to":"payer authorized"}, 
+           {"from":"debited","to":"debited from payer's bank"}, {"from":"credited to payee","to":"credited"}, {"from":"completed","to":"completed"}];
+        statuses.forEach(function(status, index){
+            setTimeout(sendStatus.bind(null, message, status), 3000*(index+1));
+        });
+    };
+
+    var sendStatus = function(message, status, index, array){debugger;
+        message.status = status.to;
+        global.clients[message.to].send(JSON.stringify(message), function(err){
+            if(err)
+            console.log(err);
+        });
+        message.status = status.from;
+        global.clients[message.from].send(JSON.stringify(message), function(err){
+            if(err)
+            console.log(err);
+        });
+    }
+
+    return {pay:pay};
 }
